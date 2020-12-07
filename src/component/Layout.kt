@@ -8,6 +8,7 @@ val layout = functionalComponent<RProps> {
 
     header()
     inputTodo(list, setList)
+    outputTodo(list)
 }
 
 

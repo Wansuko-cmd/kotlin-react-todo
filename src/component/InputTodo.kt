@@ -30,12 +30,13 @@ val inputTodo = functionalComponent<InputTodoProps> {props ->
 
     button {
         attrs.onClickFunction = {
-            val lists = props.list
+            val lists = mutableListOf<TodoData>()
+            props.list.map {
+                lists.add(it)
+            }
             lists.add(TodoData(item, false))
             props.setList(lists)
             setItem("")
-            console.log(props.list)
-            console.log("There")
         }
         +"Submit"
     }
