@@ -1,6 +1,7 @@
 package component
 
 data class TodoData(
+    val id: Int,
     val item: String,
-    val check: Boolean
+    var check: Boolean
 )

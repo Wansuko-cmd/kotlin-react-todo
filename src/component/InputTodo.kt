@@ -2,9 +2,6 @@ package component
 
 import kotlinx.html.js.onChangeFunction
 import kotlinx.html.js.onClickFunction
-import kotlinx.html.js.onKeyDownFunction
-import kotlinx.html.js.onSubmitFunction
-import kotlinx.html.onKeyDown
 import org.w3c.dom.HTMLInputElement
 import react.*
 import react.dom.button
@@ -34,7 +31,7 @@ val inputTodo = functionalComponent<InputTodoProps> {props ->
             props.list.map {
                 lists.add(it)
             }
-            lists.add(TodoData(item, false))
+            lists.add(TodoData(lists.size, item, false))
             props.setList(lists)
             setItem("")
         }
