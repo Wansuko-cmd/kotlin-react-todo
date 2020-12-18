@@ -1,19 +1,18 @@
-package component
+package component.showTodo
 
-import kotlinx.css.input
+import component.TodoData
 import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
 import react.*
 import react.dom.div
 import react.dom.input
-import react.dom.p
 
 interface OutputProps : RProps{
     var list: MutableList<TodoData>
     var setList: RSetState<MutableList<TodoData>>
 }
 
-val OutputTodo = functionalComponent<OutputProps> {props ->
+val OutputTodo = functionalComponent<OutputProps> { props ->
     props.list.map {
         val key = it.id
         div{

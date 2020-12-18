@@ -1,5 +1,6 @@
-package component
+package component.showTodo
 
+import component.TodoData
 import kotlinx.html.js.onChangeFunction
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLInputElement
@@ -12,11 +13,11 @@ interface InputTodoProps: RProps{
     var setList: RSetState<MutableList<TodoData>>
 }
 
-val inputTodo = functionalComponent<InputTodoProps> {props ->
+val inputTodo = functionalComponent<InputTodoProps> { props ->
     val (item, setItem) = useState("")
 
-    input{
-        attrs{
+    input {
+        attrs {
             value = item
             onChangeFunction = {
                 val target = it.target as HTMLInputElement
@@ -27,13 +28,15 @@ val inputTodo = functionalComponent<InputTodoProps> {props ->
 
     button {
         attrs.onClickFunction = {
-            val lists = mutableListOf<TodoData>()
-            props.list.map {
-                lists.add(it)
+            if (item != "") {
+                val lists = mutableListOf<TodoData>()
+                props.list.map {
+                    lists.add(it)
+                }
+                lists.add(TodoData(lists.size, item, false))
+                props.setList(lists)
+                setItem("")
             }
-            lists.add(TodoData(lists.size, item, false))
-            props.setList(lists)
-            setItem("")
         }
         +"Submit"
     }

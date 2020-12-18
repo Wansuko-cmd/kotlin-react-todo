@@ -1,9 +1,8 @@
-import component.layout
 import react.dom.*
 import kotlinx.browser.*
 
 fun main(args: Array<String>) {
     render(document.getElementById("root")) {
-        layout()
+        routing()
     }
 }
