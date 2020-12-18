@@ -9,9 +9,9 @@ import react.router.dom.switch
 fun RBuilder.routing() = browserRouter {
     child(layout){
         switch {
-            route("/", exact = true){showComposer("All")}
-            route("/checked", exact = true){showComposer("True")}
-            route("/unchecked", exact = true){showComposer("False")}
+            route("/", exact = true){showComposer("all")}
+            route("/checked", exact = true){showComposer("true")}
+            route("/unchecked", exact = true){showComposer("false")}
         }
     }
 }
